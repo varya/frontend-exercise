@@ -21,7 +21,6 @@ def standings():
     with codecs.open('./data/drivers.json', 'r+', encoding='utf-8') as f:
       data = json.load(f)
       lucky = randint(0,len(data)-1)
-      logging.debug(data[lucky])
       data[lucky]['points'] += 1
       f.seek(0)
       json.dump(data, f, indent=4)
@@ -31,7 +30,11 @@ def standings():
 
 @app.route('/pai/team/<int:team_id>.json')
 def team_details(team_id):
-    # TODO: Implement
+    with codecs.open('./data/teams.json', 'r+', encoding='utf-8') as f:
+      data = json.load(f)
+      team = [t for t in data if t['id'] == team_id]
+      logging.debug(team)
+      return json.dumps(team)
     pass
 
 if __name__ == '__main__':
