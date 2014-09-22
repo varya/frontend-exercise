@@ -1,5 +1,5 @@
 import os.path
-from flask import Flask
+from flask import (Flask, send_from_directory)
 
 SRC_DIR = os.path.abspath(os.path.dirname(__file__))
 DATA_DIR = os.path.join(SRC_DIR, 'data')
@@ -12,7 +12,7 @@ def home():
 
 @app.route('/api/standings.json')
 def standings():
-    # TODO: Implement
+    return send_from_directory('./data', 'drivers.json')
     pass
 
 
