@@ -1,0 +1,12 @@
+<table>
+    <tr>
+        <th>Pilot</th>
+        <th>Team</th>
+        <th>Points</th>
+    </tr>
+    <tr ng-repeat="rating in standingsCtrl.ratings">
+        <th><a href="/team/{{rating.team}}">{{rating.driver}}</a></th>
+        <th>{{rating.team}} ({{rating.country}})</th>
+        <th>{{rating.points}}</th>
+    </tr>
+</table>
