@@ -30,7 +30,7 @@ def standings():
     pass
 
 
-@app.route('/pai/team/<int:team_id>.json')
+@app.route('/api/team/<int:team_id>.json')
 def team_details(team_id):
     with codecs.open('./data/teams.json', 'r+', encoding='utf-8') as f:
       data = json.load(f)
@@ -38,6 +38,11 @@ def team_details(team_id):
       logging.debug(team)
       return json.dumps(team)
     pass
+
+@app.after_request
+def add_header(response):
+    response.headers['Cache-Control'] = 'public, max-age=0'
+    return response
 
 
 if __name__ == '__main__':

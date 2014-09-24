@@ -20,4 +20,23 @@
         };
     });
 
+    app.directive('teamInfo', function() {
+        return {
+            restrict: 'E',
+            templateUrl: '/static/templates/team-info.html',
+            controller: ['$routeParams', '$http', function($routeParams, $http) {
+                var _that = this;
+                var teamId = $routeParams.teamId;
+                this.team = {};
+
+                $http
+                    .get('/api/team/' + teamId + '.json')
+                    .success(function(data) {
+                        _that.team = data[0];
+                    });
+            }],
+            controllerAs: 'teamCtrl'
+        };
+    });
+
 })();
