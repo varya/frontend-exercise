@@ -1,0 +1,22 @@
+{
+  "name": "frontend-exercise",
+  "version": "0.0.1",
+  "description": "Trial task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/varya/frontend-exercise.git"
+  },
+  "author": "Varya Stepanova",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/varya/frontend-exercise/issues"
+  },
+  "homepage": "https://github.com/varya/frontend-exercise",
+  "devDependencies": {
+    "gulp": "^3.8.8"
+  }
+}
