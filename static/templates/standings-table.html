@@ -1,12 +1,14 @@
-<table>
+<table class="table table-striped">
     <tr>
+        <th>#</th>
         <th>Pilot</th>
-        <th>Team</th>
-        <th>Points</th>
+        <th class="text-center">Team</th>
+        <th class="text-center">Points</th>
     </tr>
     <tr ng-repeat="rating in standingsCtrl.ratings">
-        <th><a href="/team/{{rating.team}}">{{rating.driver}}</a></th>
-        <th>{{rating.team}} ({{rating.country}})</th>
-        <th>{{rating.points}}</th>
+        <td>{{$index + 1}}</td>
+        <td><a href="/team/{{rating.team}}">{{rating.driver}}</a></td>
+        <td class="text-center">{{rating.team}} ({{rating.country}})</td>
+        <td class="text-center">{{rating.points}}</td>
     </tr>
 </table>
