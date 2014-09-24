@@ -3,9 +3,9 @@
         <th>#</th>
         <th>Pilot</th>
         <th class="text-center">Team</th>
-        <th class="text-center">Points</th>
+        <th class="text-center" ng-click="predicate = 'points'; reverse=!reverse">Points</th>
     </tr>
-    <tr ng-repeat="rating in standingsCtrl.ratings">
+    <tr ng-repeat="rating in standingsCtrl.ratings | orderBy:predicate:reverse">
         <td>{{$index + 1}}</td>
         <td><a href="/team/{{rating.team}}">{{rating.driver}}</a></td>
         <td class="text-center">{{rating.team}} ({{rating.country}})</td>
