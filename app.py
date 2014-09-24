@@ -12,9 +12,11 @@ logging.basicConfig(filename='example.log', filemode='w', level=logging.DEBUG)
 
 app = Flask(__name__)
 
-@app.route('/')
-def home():
+@app.route('/', defaults={'p': ''})
+@app.route('/<path:p>')
+def home(p):
     return app.send_static_file('index.html')
+
 
 @app.route('/api/standings.json')
 def standings():
@@ -36,6 +38,7 @@ def team_details(team_id):
       logging.debug(team)
       return json.dumps(team)
     pass
+
 
 if __name__ == '__main__':
     app.run(debug=True)
